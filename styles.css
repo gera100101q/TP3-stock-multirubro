@@ -1,0 +1,335 @@
+/* =============================================
+   STYLES.CSS - Sistema de Gestión de Stock
+   Comercio Multirubro - IPET 249 - 6to G
+   Gerardo Quiroga - 2026
+   ============================================= */
+
+/* --- RESET Y BASE --- */
+/* Eliminamos márgenes por defecto del navegador */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilo general del body: fondo claro, tipografía legible */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 15px;
+  background-color: #f0f2f5; /* color por nombre funcional */
+  color: #222;
+  line-height: 1.6;
+}
+
+/* --- HEADER --- */
+/* Encabezado principal con color hexadecimal oscuro */
+header {
+  background-color: #1a1a2e;
+  color: white;
+  padding: 0 24px;
+  display: flex; /* Flexbox para alinear logo y nav en una fila */
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  border-bottom: 3px solid #e63946; /* acento rojo */
+}
+
+#logo-header {
+  font-size: 1.3rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: white;
+  text-decoration: none;
+}
+
+/* --- NAVEGACIÓN --- */
+/* Menú horizontal con flexbox */
+nav {
+  display: flex;
+  gap: 8px;
+}
+
+nav a {
+  color: #ccc;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+/* Hover en enlaces de navegación */
+nav a:hover {
+  background-color: #e63946;
+  color: white;
+}
+
+/* Clase para marcar la página activa */
+nav a.activo {
+  background-color: #e63946;
+  color: white;
+}
+
+/* --- BREADCRUMBS (migas de pan) --- */
+.breadcrumb {
+  background-color: #fff;
+  padding: 8px 24px;
+  font-size: 0.85rem;
+  color: #666;
+  border-bottom: 1px solid #ddd;
+}
+
+.breadcrumb a {
+  color: #e63946;
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+/* --- CONTENIDO PRINCIPAL --- */
+main {
+  max-width: 1100px;
+  margin: 24px auto; /* margen uniforme arriba y abajo */
+  padding: 0 20px;
+}
+
+/* --- SECCIONES / TARJETAS --- */
+/* Uso de RGB con transparencia para sombra */
+.card {
+  background-color: white;
+  border-radius: 6px;
+  padding: 24px;
+  margin-bottom: 24px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07); /* RGBA: transparencia */
+}
+
+.card h2 {
+  color: #1a1a2e;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #e63946;
+  font-size: 1.1rem;
+}
+
+/* --- GRID DE TARJETAS RESUMEN (dashboard) --- */
+/* Grid para organizar las tarjetas de métricas */
+.grid-resumen {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.tarjeta-resumen {
+  background-color: white;
+  border-radius: 6px;
+  padding: 20px 24px;
+  border-left: 4px solid #e63946;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+.tarjeta-resumen h3 {
+  font-size: 0.85rem;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+.tarjeta-resumen .numero {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #1a1a2e;
+}
+
+/* --- TABLAS --- */
+/* Estilos para tablas de productos y ventas */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+thead {
+  background-color: #1a1a2e;
+  color: white;
+}
+
+thead th {
+  padding: 10px 14px;
+  text-align: left;
+  font-weight: 600;
+}
+
+tbody tr {
+  border-bottom: 1px solid #eee;
+  transition: background-color 0.15s;
+}
+
+/* Hover en filas de tabla */
+tbody tr:hover {
+  background-color: hsl(348, 83%, 97%); /* HSL con transparencia visual */
+}
+
+tbody td {
+  padding: 10px 14px;
+  color: #333;
+}
+
+/* Badges de rubro con colores distintos */
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.badge-kiosco   { background-color: rgb(255, 220, 100); color: #7a5c00; } /* RGB */
+.badge-libreria { background-color: #b3e0ff; color: #005a8e; }
+.badge-regaleria { background-color: #c8f0c8; color: #1a6b1a; }
+
+/* Stock bajo: alerta visual */
+.stock-bajo {
+  color: #e63946;
+  font-weight: bold;
+}
+
+/* --- FORMULARIOS --- */
+/* Estilos para formulario de gestión */
+.form-grupo {
+  margin-bottom: 16px;
+}
+
+.form-grupo label {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 5px;
+}
+
+.form-grupo input,
+.form-grupo select,
+.form-grupo textarea {
+  width: 100%;
+  padding: 9px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+
+/* Resalta el campo activo */
+.form-grupo input:focus,
+.form-grupo select:focus {
+  border-color: #e63946;
+  outline: none;
+}
+
+/* Layout de dos columnas para el formulario con flexbox */
+.form-grid {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.form-grid .form-grupo {
+  flex: 1 1 200px;
+}
+
+/* --- BOTONES --- */
+.btn {
+  display: inline-block;
+  padding: 10px 22px;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+/* Botón primario */
+.btn-primario {
+  background-color: #e63946;
+  color: white;
+}
+
+.btn-primario:hover {
+  background-color: #c1121f;
+  transform: translateY(-1px);
+}
+
+/* Botón secundario */
+.btn-secundario {
+  background-color: #1a1a2e;
+  color: white;
+}
+
+.btn-secundario:hover {
+  background-color: #2d2d4e;
+}
+
+/* --- FOOTER --- */
+footer {
+  background-color: #1a1a2e;
+  color: #aaa;
+  text-align: center;
+  padding: 16px;
+  font-size: 0.82rem;
+  margin-top: 40px;
+}
+
+footer a {
+  color: #e63946;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* --- SECCIÓN PAGOS A CUENTA --- */
+.lista-pagos {
+  list-style: none;
+  padding: 0;
+}
+
+.lista-pagos li {
+  padding: 10px 14px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.lista-pagos li:last-child {
+  border-bottom: none;
+}
+
+.monto-pendiente {
+  color: #e63946;
+  font-weight: bold;
+}
+
+.monto-pagado {
+  color: #2a9d4e;
+  font-weight: bold;
+}
+
+/* --- INFO BOX con transparencia RGBA --- */
+.info-box {
+  background-color: rgba(230, 57, 70, 0.08); /* RGBA: fondo semitransparente */
+  border: 1px solid rgba(230, 57, 70, 0.3);
+  border-radius: 5px;
+  padding: 12px 16px;
+  font-size: 0.88rem;
+  color: #7a1a22;
+  margin-bottom: 16px;
+}

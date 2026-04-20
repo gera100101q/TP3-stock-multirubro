@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ventas - Gestión de Stock</title>
+  <!-- Hoja de estilos externa -->
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <style>
+    h1 {
+      font-size: 1.4rem;
+      color: #1a6b1a; /* verde: tercer variante del cascadeo entre páginas */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ENCABEZADO GLOBAL -->
+  <header>
+    <a href="index.html" id="logo-header">🏪 Comercio Multirubro</a>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="gestion.html">Gestión</a>
+      <a href="ventas.html" class="activo">Ventas</a>
+      <a href="https://www.afip.gob.ar" target="_blank">AFIP</a>
+    </nav>
+  </header>
+
+  <!-- MIGAS DE PAN -->
+  <div class="breadcrumb">
+    <a href="index.html">Inicio</a> &gt; Ventas y Facturación
+  </div>
+
+  <main>
+
+    <h1>Ventas y Facturación</h1>
+    <p>Registro de transacciones del mes y estado de pagos a cuenta de clientes.</p>
+
+    <br />
+
+    <!-- TABLA DE TRANSACCIONES -->
+    <div class="card">
+      <h2>Transacciones del Mes — Abril 2026</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>N° Factura</th>
+            <th>Fecha</th>
+            <th>Cliente</th>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>Total</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>FAC-0041</code></td>
+            <td>01/04/2026</td>
+            <td>María López</td>
+            <td>Coca-Cola 500ml</td>
+            <td>3</td>
+            <td>$3.600</td>
+            <td><strong style="color: #2a9d4e;">Pagado</strong></td>
+          </tr>
+          <tr>
+            <td><code>FAC-0042</code></td>
+            <td>02/04/2026</td>
+            <td>Carlos Pérez</td>
+            <td>Cuaderno Rivadavia</td>
+            <td>2</td>
+            <td>$3.600</td>
+            <td><strong style="color: #e63946;">Pendiente</strong></td>
+          </tr>
+          <tr>
+            <td><code>FAC-0043</code></td>
+            <td>03/04/2026</td>
+            <td>Ana Gómez</td>
+            <td>Taza personalizada</td>
+            <td>1</td>
+            <td>$4.500</td>
+            <td><strong style="color: #2a9d4e;">Pagado</strong></td>
+          </tr>
+          <tr>
+            <td><code>FAC-0044</code></td>
+            <td>05/04/2026</td>
+            <td>Juan Torres</td>
+            <td>Resma A4 500 hojas</td>
+            <td>2</td>
+            <td>$17.000</td>
+            <td><strong style="color: #e63946;">Pendiente</strong></td>
+          </tr>
+          <tr>
+            <td><code>FAC-0045</code></td>
+            <td>07/04/2026</td>
+            <td>Laura Díaz</td>
+            <td>Alfajor Oreo x4</td>
+            <td>4</td>
+            <td>$3.400</td>
+            <td><strong style="color: #2a9d4e;">Pagado</strong></td>
+          </tr>
+          <tr>
+            <td><code>FAC-0046</code></td>
+            <td>10/04/2026</td>
+            <td>Roberto Sosa</td>
+            <td>Agenda 2026</td>
+            <td>1</td>
+            <td>$6.000</td>
+            <td><strong style="color: #f4a261;">A cuenta</strong></td>
+          </tr>
+          <tr>
+            <td><code>FAC-0047</code></td>
+            <td>12/04/2026</td>
+            <td>Valeria Ruiz</td>
+            <td>Marco de fotos 10x15</td>
+            <td>2</td>
+            <td>$7.600</td>
+            <td><strong style="color: #2a9d4e;">Pagado</strong></td>
+          </tr>
+          <tr>
+            <td><code>FAC-0048</code></td>
+            <td>15/04/2026</td>
+            <td>Pablo Ríos</td>
+            <td>Marcadores x 12</td>
+            <td>3</td>
+            <td>$9.600</td>
+            <td><strong style="color: #f4a261;">A cuenta</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+    <!-- SECCIÓN PAGOS A CUENTA -->
+    <div class="card">
+      <h2>Pagos a Cuenta — Clientes con Saldo Pendiente</h2>
+
+      <p>Los siguientes clientes tienen compras registradas con saldo pendiente de pago:</p>
+      <br />
+
+      <ul class="lista-pagos">
+
+        <li>
+          <div>
+            <strong>Carlos Pérez</strong><br />
+            <small><code>FAC-0042</code> — Cuaderno Rivadavia x2 — 02/04/2026</small>
+          </div>
+          <span class="monto-pendiente">$3.600 pendiente</span>
+        </li>
+
+        <li>
+          <div>
+            <strong>Juan Torres</strong><br />
+            <small><code>FAC-0044</code> — Resma A4 x2 — 05/04/2026</small>
+          </div>
+          <span class="monto-pendiente">$17.000 pendiente</span>
+        </li>
+
+        <li>
+          <div>
+            <strong>Roberto Sosa</strong><br />
+            <small><code>FAC-0046</code> — Agenda 2026 — 10/04/2026</small><br />
+            <small>Pagó a cuenta: $3.000</small>
+          </div>
+          <span class="monto-pendiente">$3.000 pendiente</span>
+        </li>
+
+        <li>
+          <div>
+            <strong>Pablo Ríos</strong><br />
+            <small><code>FAC-0048</code> — Marcadores x3 — 15/04/2026</small><br />
+            <small>Pagó a cuenta: $4.800</small>
+          </div>
+          <span class="monto-pendiente">$4.800 pendiente</span>
+        </li>
+
+        <li>
+          <div>
+            <strong>Daniela Morales</strong><br />
+            <small><code>FAC-0039</code> — Vela aromática x2 — 28/03/2026</small>
+          </div>
+          <span class="monto-pagado">✔ Saldado</span>
+        </li>
+
+      </ul>
+
+      <br />
+
+      <!-- Totales -->
+      <div class="info-box">
+        <strong>Total pendiente de cobro:</strong> $28.400
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+        <strong>Clientes con deuda activa:</strong> 4
+      </div>
+
+    </div>
+
+    <!-- SECCIÓN REFLEXIÓN STEVE KRUG -->
+    <div class="card">
+      <h2>Principios de Usabilidad Aplicados — Steve Krug</h2>
+
+      <h3 style="font-size:1rem; color:#1a1a2e; margin-bottom:8px;">1. &ldquo;No me hagas pensar&rdquo;</h3>
+      <p>El menú de navegación es igual en todas las páginas y siempre visible en el encabezado. El usuario sabe dónde está gracias al resaltado de la página activa (<em>clase <code>activo</code></em>) y las migas de pan.</p>
+
+      <br />
+
+      <h3 style="font-size:1rem; color:#1a1a2e; margin-bottom:8px;">2. Minimizar el ruido</h3>
+      <p>Cada sección tiene un único propósito claro. Se eliminaron descripciones innecesarias: la tabla habla por sí misma, los badges de colores identifican los rubros de un vistazo sin necesidad de leer texto.</p>
+
+      <br />
+
+      <h3 style="font-size:1rem; color:#1a1a2e; margin-bottom:8px;">3. Aprovechar las convenciones</h3>
+      <p>El logo en el encabezado funciona como enlace al inicio (convención universal). Los botones rojos indican acción principal, los oscuros acción secundaria. El estado de cada factura usa <ins>verde = pagado</ins> y <del style="color:#e63946;">rojo = pendiente</del>, colores que el usuario ya reconoce culturalmente.</p>
+
+      <br />
+
+      <h4 style="font-size:0.9rem; color:#888;">Prueba del maletero</h4>
+      <p>Al ver cualquier página entrecerando los ojos se distingue claramente: el logo/nombre del sitio (arriba izquierda), el menú (arriba derecha), el título de la sección (h1 grande), las zonas de contenido (cards) y las acciones posibles (botones rojos). La jerarquía visual es inmediata.</p>
+
+    </div>
+
+  </main>
+
+  <footer>
+    <p>
+      Comercio Multirubro &mdash; Sistema de Gestión de Stock &mdash; IPET 249 Nicolás Copérnico 2026
+      &nbsp;|&nbsp;
+      <a href="mailto:gerardobenjaminquiroga@gmail.com?subject=Consulta%20de%20Stock">Contacto</a>
+      &nbsp;|&nbsp;
+      <a href="https://github.com" target="_blank">GitHub</a>
+    </p>
+  </footer>
+
+</body>
+</html>

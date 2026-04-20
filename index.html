@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard - Gestión de Stock</title>
+  <!-- Hoja de estilos externa -->
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- Cascadeo: sobreescribimos h1 solo para esta página con <style> en head -->
+  <style>
+    h1 {
+      font-size: 1.4rem;
+      color: #1a1a2e;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ENCABEZADO GLOBAL: aparece en todas las páginas -->
+  <header>
+    <!-- Logo como enlace al inicio (convención web estándar) -->
+    <a href="index.html" id="logo-header">🏪 Comercio Multirubro</a>
+    <!-- Menú de navegación global -->
+    <nav>
+      <a href="index.html" class="activo">Inicio</a>
+      <a href="gestion.html">Gestión</a>
+      <a href="ventas.html">Ventas</a>
+      <!-- Enlace externo: abre en nueva pestaña -->
+      <a href="https://www.afip.gob.ar" target="_blank">AFIP</a>
+    </nav>
+  </header>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main>
+
+    <!-- Título de la sección -->
+    <h1>Dashboard — Resumen General</h1>
+    <p>Bienvenido al sistema de gestión de stock. Desde aquí podés ver el estado actual del inventario y las últimas transacciones.</p>
+
+    <br />
+
+    <!-- TARJETAS DE RESUMEN con CSS Grid -->
+    <div class="grid-resumen">
+
+      <div class="tarjeta-resumen">
+        <h3>Productos en stock</h3>
+        <div class="numero">42</div>
+      </div>
+
+      <div class="tarjeta-resumen">
+        <h3>Ventas del mes</h3>
+        <div class="numero">$187.500</div>
+      </div>
+
+      <div class="tarjeta-resumen">
+        <h3>Pagos pendientes</h3>
+        <div class="numero">5</div>
+      </div>
+
+    </div>
+
+    <!-- INFO BOX: alerta con RGBA -->
+    <div class="info-box">
+      <strong>Atención:</strong> 3 productos tienen stock bajo el mínimo recomendado. <a href="gestion.html">Ir a Gestión</a> para actualizar.
+    </div>
+
+    <!-- TABLA DE PRODUCTOS DESTACADOS -->
+    <div class="card">
+      <h2>Productos Destacados por Rubro</h2>
+
+      <!-- Imagen local (logo del comercio) -->
+      <img
+        src="img/logo.png"
+        alt="Logo del Comercio Multirubro"
+        title="Comercio Multirubro - Kiosco, Librería y Regalería"
+        width="120"
+        style="margin-bottom: 16px; display: block;"
+      />
+
+      <!-- Imagen externa: logo de ejemplo -->
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/120px-HTML5_logo_and_wordmark.svg.png"
+        alt="Logo HTML5 - tecnología usada en este sitio"
+        title="Desarrollado con HTML5"
+        width="40"
+        height="46"
+        style="margin-bottom: 16px; display: block;"
+      />
+
+      <table>
+        <thead>
+          <tr>
+            <th>Código</th>
+            <th>Nombre</th>
+            <th>Rubro</th>
+            <th>Precio</th>
+            <th>Stock</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Kiosco -->
+          <tr>
+            <td><code>KIO-001</code></td>
+            <td>Coca-Cola 500ml</td>
+            <td><span class="badge badge-kiosco">Kiosco</span></td>
+            <td>$1.200</td>
+            <td>48</td>
+          </tr>
+          <tr>
+            <td><code>KIO-002</code></td>
+            <td>Alfajor Oreo</td>
+            <td><span class="badge badge-kiosco">Kiosco</span></td>
+            <td>$850</td>
+            <td class="stock-bajo">4 ⚠</td>
+          </tr>
+          <tr>
+            <td><code>KIO-003</code></td>
+            <td>Papas Fritas 100g</td>
+            <td><span class="badge badge-kiosco">Kiosco</span></td>
+            <td>$950</td>
+            <td>22</td>
+          </tr>
+          <tr>
+            <td><code>KIO-004</code></td>
+            <td>Agua Mineral 1,5L</td>
+            <td><span class="badge badge-kiosco">Kiosco</span></td>
+            <td>$900</td>
+            <td>35</td>
+          </tr>
+          <tr>
+            <td><code>KIO-005</code></td>
+            <td>Chicles Beldent</td>
+            <td><span class="badge badge-kiosco">Kiosco</span></td>
+            <td>$400</td>
+            <td>60</td>
+          </tr>
+          <!-- Librería -->
+          <tr>
+            <td><code>LIB-001</code></td>
+            <td>Cuaderno Rivadavia 48h</td>
+            <td><span class="badge badge-libreria">Librería</span></td>
+            <td>$1.800</td>
+            <td>30</td>
+          </tr>
+          <tr>
+            <td><code>LIB-002</code></td>
+            <td>Lapicera Bic Azul</td>
+            <td><span class="badge badge-libreria">Librería</span></td>
+            <td>$350</td>
+            <td>100</td>
+          </tr>
+          <tr>
+            <td><code>LIB-003</code></td>
+            <td>Resma A4 500 hojas</td>
+            <td><span class="badge badge-libreria">Librería</span></td>
+            <td>$8.500</td>
+            <td class="stock-bajo">2 ⚠</td>
+          </tr>
+          <tr>
+            <td><code>LIB-004</code></td>
+            <td>Marcadores x 12</td>
+            <td><span class="badge badge-libreria">Librería</span></td>
+            <td>$3.200</td>
+            <td>15</td>
+          </tr>
+          <tr>
+            <td><code>LIB-005</code></td>
+            <td>Tijera escolar</td>
+            <td><span class="badge badge-libreria">Librería</span></td>
+            <td>$1.100</td>
+            <td>18</td>
+          </tr>
+          <!-- Regalería -->
+          <tr>
+            <td><code>REG-001</code></td>
+            <td>Taza personalizada</td>
+            <td><span class="badge badge-regaleria">Regalería</span></td>
+            <td>$4.500</td>
+            <td>12</td>
+          </tr>
+          <tr>
+            <td><code>REG-002</code></td>
+            <td>Marco de fotos 10x15</td>
+            <td><span class="badge badge-regaleria">Regalería</span></td>
+            <td>$3.800</td>
+            <td>8</td>
+          </tr>
+          <tr>
+            <td><code>REG-003</code></td>
+            <td>Vela aromática</td>
+            <td><span class="badge badge-regaleria">Regalería</span></td>
+            <td>$2.900</td>
+            <td class="stock-bajo">3 ⚠</td>
+          </tr>
+          <tr>
+            <td><code>REG-004</code></td>
+            <td>Portarretrato de madera</td>
+            <td><span class="badge badge-regaleria">Regalería</span></td>
+            <td>$5.200</td>
+            <td>6</td>
+          </tr>
+          <tr>
+            <td><code>REG-005</code></td>
+            <td>Agenda 2026</td>
+            <td><span class="badge badge-regaleria">Regalería</span></td>
+            <td>$6.000</td>
+            <td>10</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br />
+      <a href="gestion.html" class="btn btn-primario">Gestionar Productos</a>
+      &nbsp;
+      <a href="ventas.html" class="btn btn-secundario">Ver Ventas</a>
+    </div>
+
+  </main>
+
+  <!-- PIE DE PÁGINA GLOBAL -->
+  <footer>
+    <p>
+      Comercio Multirubro &mdash; Sistema de Gestión de Stock &mdash; IPET 249 Nicolás Copérnico 2026
+      &nbsp;|&nbsp;
+      <a href="mailto:gerardobenjaminquiroga@gmail.com?subject=Consulta%20de%20Stock">Contacto</a>
+      &nbsp;|&nbsp;
+      <a href="https://github.com" target="_blank">GitHub</a>
+    </p>
+  </footer>
+
+</body>
+</html>

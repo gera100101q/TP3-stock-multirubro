@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gestión de Productos - Gestión de Stock</title>
+  <!-- Hoja de estilos externa vinculada -->
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- Cascadeo: sobreescribimos el color de h1 solo en esta página -->
+  <style>
+    h1 {
+      font-size: 1.4rem;
+      color: #c1121f; /* distinto al de index.html para demostrar cascadeo */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ENCABEZADO GLOBAL -->
+  <header>
+    <a href="index.html" id="logo-header">🏪 Comercio Multirubro</a>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="gestion.html" class="activo">Gestión</a>
+      <a href="ventas.html">Ventas</a>
+      <a href="https://www.afip.gob.ar" target="_blank">AFIP</a>
+    </nav>
+  </header>
+
+  <!-- MIGAS DE PAN: indicador de ubicación -->
+  <div class="breadcrumb">
+    <a href="index.html">Inicio</a> &gt; Gestión de Productos
+  </div>
+
+  <main>
+
+    <h1>Gestión de Productos</h1>
+    <p>Desde esta sección podés agregar nuevos productos o modificar los existentes en el inventario.</p>
+
+    <br />
+
+    <!-- FORMULARIO PARA AGREGAR / EDITAR PRODUCTO -->
+    <div class="card">
+      <h2>Agregar / Editar Producto</h2>
+
+      <!-- INFO sobre el formulario -->
+      <div class="info-box">
+        Completá todos los campos y presioná <strong>Guardar</strong>. Los campos marcados con <strong>*</strong> son obligatorios.
+      </div>
+
+      <!-- Formulario estático (sin JS): demuestra estructura HTML -->
+      <form>
+
+        <div class="form-grid">
+
+          <!-- Campo Nombre -->
+          <div class="form-grupo">
+            <label for="nombre">Nombre del producto *</label>
+            <input
+              type="text"
+              id="nombre"
+              name="nombre"
+              placeholder="Ej: Coca-Cola 500ml"
+              title="Ingrese el nombre completo del producto"
+            />
+          </div>
+
+          <!-- Campo Código -->
+          <div class="form-grupo">
+            <label for="codigo">Código <em>(auto)</em></label>
+            <!-- Sobreescritura inline del style: tercer nivel del cascadeo -->
+            <input
+              type="text"
+              id="codigo"
+              name="codigo"
+              placeholder="Ej: KIO-001"
+              style="background-color: #f5f5f5; color: #888;"
+              title="El código se genera automáticamente"
+            />
+          </div>
+
+          <!-- Campo Rubro -->
+          <div class="form-grupo">
+            <label for="rubro">Rubro *</label>
+            <select id="rubro" name="rubro" title="Seleccioná el rubro del producto">
+              <option value="">-- Seleccioná un rubro --</option>
+              <option value="kiosco">Kiosco</option>
+              <option value="libreria">Librería</option>
+              <option value="regaleria">Regalería</option>
+            </select>
+          </div>
+
+          <!-- Campo Precio -->
+          <div class="form-grupo">
+            <label for="precio">Precio ($) *</label>
+            <input
+              type="number"
+              id="precio"
+              name="precio"
+              placeholder="Ej: 1200"
+              min="0"
+              title="Precio en pesos argentinos"
+            />
+          </div>
+
+          <!-- Campo Stock -->
+          <div class="form-grupo">
+            <label for="stock">Stock actual *</label>
+            <input
+              type="number"
+              id="stock"
+              name="stock"
+              placeholder="Ej: 48"
+              min="0"
+              title="Cantidad disponible en inventario"
+            />
+          </div>
+
+          <!-- Campo Stock Mínimo -->
+          <div class="form-grupo">
+            <label for="stock-min">Stock mínimo</label>
+            <input
+              type="number"
+              id="stock-min"
+              name="stock-min"
+              placeholder="Ej: 5"
+              min="0"
+              title="Cantidad mínima antes de reponer"
+            />
+          </div>
+
+        </div>
+
+        <!-- Descripción opcional -->
+        <div class="form-grupo">
+          <label for="descripcion">Descripción</label>
+          <textarea
+            id="descripcion"
+            name="descripcion"
+            rows="3"
+            placeholder="Descripción opcional del producto..."
+          ></textarea>
+        </div>
+
+        <hr style="margin: 16px 0; border: none; border-top: 1px solid #eee;" />
+
+        <!-- Botón Guardar simulado -->
+        <button type="submit" class="btn btn-primario">Guardar Producto</button>
+        &nbsp;
+        <button type="reset" class="btn btn-secundario">Limpiar</button>
+
+      </form>
+    </div>
+
+    <!-- TABLA DE PRODUCTOS ACTUALES -->
+    <div class="card">
+      <h2>Inventario Actual</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Código</th>
+            <th>Nombre</th>
+            <th>Rubro</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>KIO-001</code></td>
+            <td>Coca-Cola 500ml</td>
+            <td><span class="badge badge-kiosco">Kiosco</span></td>
+            <td>$1.200</td>
+            <td>48</td>
+            <td><a href="#" class="btn btn-primario" style="padding: 4px 10px; font-size: 0.8rem;">Editar</a></td>
+          </tr>
+          <tr>
+            <td><code>KIO-002</code></td>
+            <td>Alfajor Oreo</td>
+            <td><span class="badge badge-kiosco">Kiosco</span></td>
+            <td>$850</td>
+            <td class="stock-bajo">4 ⚠</td>
+            <td><a href="#" class="btn btn-primario" style="padding: 4px 10px; font-size: 0.8rem;">Editar</a></td>
+          </tr>
+          <tr>
+            <td><code>LIB-001</code></td>
+            <td>Cuaderno Rivadavia 48h</td>
+            <td><span class="badge badge-libreria">Librería</span></td>
+            <td>$1.800</td>
+            <td>30</td>
+            <td><a href="#" class="btn btn-primario" style="padding: 4px 10px; font-size: 0.8rem;">Editar</a></td>
+          </tr>
+          <tr>
+            <td><code>LIB-003</code></td>
+            <td>Resma A4 500 hojas</td>
+            <td><span class="badge badge-libreria">Librería</span></td>
+            <td>$8.500</td>
+            <td class="stock-bajo">2 ⚠</td>
+            <td><a href="#" class="btn btn-primario" style="padding: 4px 10px; font-size: 0.8rem;">Editar</a></td>
+          </tr>
+          <tr>
+            <td><code>REG-001</code></td>
+            <td>Taza personalizada</td>
+            <td><span class="badge badge-regaleria">Regalería</span></td>
+            <td>$4.500</td>
+            <td>12</td>
+            <td><a href="#" class="btn btn-primario" style="padding: 4px 10px; font-size: 0.8rem;">Editar</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+  </main>
+
+  <footer>
+    <p>
+      Comercio Multirubro &mdash; Sistema de Gestión de Stock &mdash; IPET 249 Nicolás Copérnico 2026
+      &nbsp;|&nbsp;
+      <a href="mailto:gerardobenjaminquiroga@gmail.com?subject=Consulta%20de%20Stock">Contacto</a>
+      &nbsp;|&nbsp;
+      <a href="https://github.com" target="_blank">GitHub</a>
+    </p>
+  </footer>
+
+</body>
+</html>
